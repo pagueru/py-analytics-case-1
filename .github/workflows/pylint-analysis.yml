@@ -1,0 +1,38 @@
+name: Análise e Testes com Pylint
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.12.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12.7"
+
+      - name: Configurar cache do Poetry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: poetry-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            poetry-${{ runner.os }}-
+
+      - name: Instalar Poetry
+        run: pip install poetry
+
+      - name: Instalar dependências com Poetry
+        run: |
+          poetry install --no-root
+
+      - name: Executar análise de código com Pylint
+        run: |
+          poetry run pylint $(git ls-files '*.py')
