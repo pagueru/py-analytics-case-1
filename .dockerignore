@@ -1,0 +1,30 @@
+# Ignorar arquivos e diretórios não necessários para o container
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+*.log
+*.sqlite3
+
+# Ignorar arquivos de controle de versão
+.git/
+.gitignore
+
+# Ignorar arquivos de IDEs e editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignorar arquivos de build
+build/
+dist/
+
+# Ignorar outros arquivos que não são relevantes para o container
+node_modules/
+.env
+*.bak
+*.tmp
