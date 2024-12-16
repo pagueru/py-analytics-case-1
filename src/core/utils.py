@@ -20,7 +20,7 @@ def start_config() -> None:
 
     Raises:
         RuntimeError: Se houver erro ao limpar a tela do terminal.
-    """    
+    """
     # Executa o comando e verifica o resultado
     resultado: int = os.system("cls" if os.name == "nt" else "clear")
 

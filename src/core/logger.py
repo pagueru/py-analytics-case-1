@@ -11,9 +11,9 @@ Configurações do Logger:
 """
 
 import logging
+from typing import Any
 
 from .constants import LOG_FILE_PATH
-from typing import Any
 
 # Atribui um logger com o menor nível necessário
 logger: logging.Logger = logging.getLogger(__name__)
